@@ -19,7 +19,7 @@ router.post('/login',(req,res)=>{
 		if(results.length==0){
 			res.send({message:'登录名或密码错误',code:0})
 		}else{
-			res.send({message:'登录成功',code:1})
+			res.send({message:'登录成功',code:1,results:results[0]})
 			}
 	})
 })

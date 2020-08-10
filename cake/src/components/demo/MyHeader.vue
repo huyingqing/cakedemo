@@ -53,9 +53,13 @@
     
         <!-- 左边的div -->
         <div class="rightdiv">
-            <div class="dengludiv" @click="adenglu()">
+            <div class="dengludiv" @click="adenglu()" v-if="!this.$store.state.isLogin">
             <img class="dengluimg"  src="../../../public/img/home/header/gerenzhongxin.png" alt=""><br>
             <span class="xiaoshou outp" >注册 | 登录</span>
+            </div>
+             <div class="dengludiv" v-else >
+            <img class="dengluimg"  src="../../../public/img/home/header/gerenzhongxin.png" alt=""><br>
+            <span class="xiaoshou outp"  @click="tuichu()">退出登录</span>
             </div>
             <div @click="gouwu()">
            <span class="gouwu">0</span>
@@ -330,7 +334,7 @@ export default {
           this.usernameState = 'error';
           this.$toast({
             message:"请输入合法用户名",
-            position:"top",
+            position:"center",
             duration:3000
           });
           return false;
@@ -348,7 +352,7 @@ export default {
         this.passwordState = 'error';
         this.$toast({
           message:"请输入合法密码",
-          position:"top",
+          position:"center",
           duration:3000
         });
         return false;
@@ -362,11 +366,16 @@ export default {
                 // this.$messagebox("登录提示","对不起,用户名或密码错误");
                 this.$toast({
                 message:"用户名或密码错误",
-                position:"top",
+                position:"center",
                 duration:3000
                 });
                  return false;
               }else{
+                this.$store.commit('login_mutation',res.data.results);
+              // 将用户登录状态储存到webStorage中
+              // 之所以要将用户的登录状态保存为true，是因为以防用户在登录之后刷新页面又出现登录的情况
+              localStorage.setItem('isLogin',true);
+              localStorage.setItem('uname',res.data.results.uname);
                 this.$router.push('/product');
                 this.headeblock()
               }
@@ -385,7 +394,7 @@ export default {
           this.puserunamestate= 'error';
           this.$toast({
             message:"请输入合法用户名",
-            position:"top",
+            position:"center",
             duration:3000
           });
           return false;
@@ -402,7 +411,7 @@ export default {
         this.ppasswordState = 'error';
         this.$toast({
           message:"请输入合法密码",
-          position:"top",
+          position:"center",
           duration:3000
         });
         return false;
@@ -418,7 +427,7 @@ export default {
         this.ppassword2State = 'error';
         this.$toast({
           message:"两次密码不一致",
-          position:"top",
+          position:"center",
           duration:3000
         });
         return false;
@@ -436,14 +445,20 @@ export default {
             //   this.$messagebox("注册提示","对不起,用户已存在");
                 this.$toast({
                 message:`"注册提示","对不起,用户已存在"`,
-                position:"top",
+                position:"center",
                 duration:3000
                 });
                 return false;
             }else{
               //注册成功
-              this.$router.push('/product');
-              this.headeblock()
+            //   this.$router.push('/product');
+            this.$toast({
+                message:`注册成功`,
+                position:"center",
+                duration:3000
+                });
+                return false;
+            //   this.headeblock()
             }
           })   
     }
@@ -465,6 +480,12 @@ export default {
     addrs(k){
             this.addr=this.address[k].address
             this.isShow=false
+    },
+    tuichu(){
+        this.$store.commit('logout_mutations');
+        this.$router.push('/')
+        // 清空所有的sessionStorage
+            // sessionStorage.clear();
     }
 
     },
