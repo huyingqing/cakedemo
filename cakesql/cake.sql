@@ -150,17 +150,17 @@ insert into peijian values
 /*蛋糕详情插入数据*/
 insert into list values
 (null,1,"约瑟玫瑰","Fleur de pêche",398.00,"提前24小时预定","奶油、水果","口味基底：Whipping Cream","口感：绵软细腻","口味：奶油/水果","甜味：2","标配餐具(免费)5份","SIZE:15cm*13cm(直径*高）","若不及时食用，请放置0-10℃冷藏","1.3磅(591g)适合2-3人食","2020-7-20","http://localhost:3001/img/list/new1.jpg","http://localhost:3001/img/xaingqing/1/detail1.jpg","http://localhost:3001/img/xaingqing/1/pc.jpg","约2磅 —— 900g",true),
-(null,1,"爱之风物诗","Souhaiter Un Joyeux Anniversai",218.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new2.jpg","http://localhost:3001/img/xaingqing/2/detail1.jpg","http://localhost:3001/img/xaingqing/2/pc.jpg","约2磅 —— 900g",true),
+(null,3,"爱之风物诗","Souhaiter Un Joyeux Anniversai",218.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new2.jpg","http://localhost:3001/img/xaingqing/2/detail1.jpg","http://localhost:3001/img/xaingqing/2/pc.jpg","约2磅 —— 900g",true),
 (null,1,"男友力","Charmes masculins",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new3.jpg","http://localhost:3001/img/xaingqing/3/detail1.jpg","http://localhost:3001/img/xaingqing/3/pc.jpg","约2磅 —— 900g",true),
-(null,1,"甜愿·生日蛋糕","Souhaiter Un Joyeux Anniversai",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new4.jpg","http://localhost:3001/img/xaingqing/4/detail1.jpg","http://localhost:3001/img/xaingqing/4/pc.jpg","约2磅 —— 900g",true),
-(null,2,"阳光心芒","Le Soleil",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new5.jpg","http://localhost:3001/img/xaingqing/5/detail1.jpg","http://localhost:3001/img/xaingqing/5/pc.jpg","约2磅 —— 900g",true),
+(null,6,"甜愿·生日蛋糕","Souhaiter Un Joyeux Anniversai",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new4.jpg","http://localhost:3001/img/xaingqing/4/detail1.jpg","http://localhost:3001/img/xaingqing/4/pc.jpg","约2磅 —— 900g",true),
+(null,5,"阳光心芒","Le Soleil",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new5.jpg","http://localhost:3001/img/xaingqing/5/detail1.jpg","http://localhost:3001/img/xaingqing/5/pc.jpg","约2磅 —— 900g",true),
 (null,2,"浓巧·迷情冰淇淋蛋糕","Choco ~ Mariage",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new6.jpg","http://localhost:3001/img/xaingqing/6/detail1.jpg","http://localhost:3001/img/xaingqing/6/pc.jpg","约2磅 —— 900g",true),
-(null,2,"胖达乐园","Choco ~ Mariage",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new7.jpg","http://localhost:3001/img/xaingqing/7/detail1.jpg","http://localhost:3001/img/xaingqing/7/pc.jpg","约2磅 —— 900g",true),
+(null,4,"胖达乐园","Choco ~ Mariage",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new7.jpg","http://localhost:3001/img/xaingqing/7/detail1.jpg","http://localhost:3001/img/xaingqing/7/pc.jpg","约2磅 —— 900g",true),
 (null,2,"尼诺 ","Nino",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new8.jpg","http://localhost:3001/img/xaingqing/8/detail1.jpg","http://localhost:3001/img/xaingqing/8/pc.jpg","约2磅 —— 900g",true),
-(null,3,"安逸兔","lapin détendu",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new9.jpg","http://localhost:3001/img/xaingqing/9/detail1.jpg","http://localhost:3001/img/xaingqing/9/pc.jpg","约2磅 —— 900g",true),
-(null,3,"黛西的旅行","Voyage de Daisy",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new10.jpg","http://localhost:3001/img/xaingqing/10/detail1.jpg","http://localhost:3001/img/xaingqing/10/pc.jpg","约2磅 —— 900g",true),
-(null,3,"Finn的蘑菇星球","La planète champignon de Finn",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new11.jpg","http://localhost:3001/img/xaingqing/11/detail1.jpg","http://localhost:3001/img/xaingqing/11/pc.jpg","约2磅 —— 900g",true),
-(null,3,"卢克和咚咚冰淇淋蛋糕","Luke et dondon",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new12.jpg","http://localhost:3001/img/xaingqing/12/detail1.jpg","http://localhost:3001/img/xaingqing/12/pc.jpg","约2磅 —— 900g",true);
+(null,6,"安逸兔","lapin détendu",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new9.jpg","http://localhost:3001/img/xaingqing/9/detail1.jpg","http://localhost:3001/img/xaingqing/9/pc.jpg","约2磅 —— 900g",true),
+(null,7,"黛西的旅行","Voyage de Daisy",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new10.jpg","http://localhost:3001/img/xaingqing/10/detail1.jpg","http://localhost:3001/img/xaingqing/10/pc.jpg","约2磅 —— 900g",true),
+(null,9,"Finn的蘑菇星球","La planète champignon de Finn",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new11.jpg","http://localhost:3001/img/xaingqing/11/detail1.jpg","http://localhost:3001/img/xaingqing/11/pc.jpg","约2磅 —— 900g",true),
+(null,8,"卢克和咚咚冰淇淋蛋糕","Luke et dondon",298.00,"提前5小时预定","慕斯、巧克力","口味基底：Mousse","口感：绵软细腻","口味：巧克力/干果","甜味：1","标配餐具(免费)10份","15.5cm*6cm（直径*高）","若不及时食用，请放置0-10℃冷藏","1.7磅(772g)适合4-7人食","2020-7-20","http://localhost:3001/img/list/new12.jpg","http://localhost:3001/img/xaingqing/12/detail1.jpg","http://localhost:3001/img/xaingqing/12/pc.jpg","约2磅 —— 900g",true);
 
 /*用户信息插入数据*/
 insert into users values
@@ -190,12 +190,12 @@ INSERT INTO protaste VALUES
 (null,1,"拿破仑"),
 (null,2,"奶油"),
 (null,3,"莫斯"),
-(null,1,"芝士"),
-(null,2,"巧克力"),
-(null,3,"咖啡"),
-(null,1,"坚果"),
-(null,2,"水果"),
-(null,3,"冰淇淋");
+(null,4,"芝士"),
+(null,5,"巧克力"),
+(null,6,"咖啡"),
+(null,7,"坚果"),
+(null,8,"水果"),
+(null,9,"冰淇淋");
 
 
 
