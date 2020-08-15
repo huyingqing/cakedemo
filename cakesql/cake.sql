@@ -102,7 +102,7 @@ CREATE TABLE peijian(
   lid INT PRIMARY KEY AUTO_INCREMENT,#主键约束
   img varchar(128),#配件1
   title varchar(120),#标题
-  price decimal(6,2) #价格
+  pricep decimal(6,2) #价格
 );
 
 /*导航栏地址*/

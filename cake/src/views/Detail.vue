@@ -48,8 +48,8 @@
             <!-- 下面的价格和按钮 -->
             <div class="foot">
                 <p class="footprice">¥{{product.price}}</p>
-                <router-link to="/cart"><button class="footbtn1" >加入购物车</button></router-link>
-                <router-link to="/cart"><button @click="goods" class="footbtn2">立即预定</button></router-link>
+                <button class="footbtn1" @click="join(lid)" >加入购物车</button>
+                <router-link to="/product"><button  class="footbtn2">查看更多</button></router-link>
             </div>
             </div>
             </div>
@@ -71,7 +71,7 @@
                     <li class="peijianli" v-for="(item,index) of peijian" :key="index">
                         <img class="peijianimg" :src="item.img" alt="">
                         <p class="peijianp">{{item.title}}</p>
-                        <p class="peijianp" v-text="`¥${item.price.toFixed(2)}`"></p>
+                        <p class="peijianp" v-text="`¥${(item.pricep).toFixed(2)}`"></p>
                           <img class="peijianimgp" src="../../public/img/home/header/gouwuche.png" alt="图片正在加载">
                         <span class="peijiank"></span>
                     </li>
@@ -87,9 +87,17 @@ export default {
     data(){
         return{
             // 保存服务器拿到的数组数据
-            product:{},
+            product:[],
             //声明数组保存数组对象
-            peijian:[]
+            peijian:[],
+            // 声明变量，保存商品的信息
+            lid:"",
+            cname:"",//商品的名称
+            title:'',//商品的英文名
+            price:'',//商品的价格
+            spec:'',//商品的规格
+            img:'',//商品的图片
+            count:1 //商品的数量，默认为1
         }
     },
     methods:{
@@ -97,23 +105,48 @@ export default {
             // 监听product传过来的lid的变化
             let lid=this.$route.params.lid;
             // console.log(lid);
-        // 获取商品的数组对象
-        this.axios.get('/pro/detail?lid='+lid).then(res=>{
+             // 获取商品的数组对象
+             this.axios.get('/pro/detail?lid='+lid).then(res=>{
             // console.log('2222');
             this.product=res.data.results;
+            this.lid=res.data.results.lid;
+            this.cname=res.data.results.cname;
+            this.title=res.data.results.title;
+            this.price=res.data.results.price;
+            this.spec=res.data.results.spec;
+            this.img=res.data.results.img;
+            // this.count=res.data.results.count;
             // console.log(this.product);
         });
-        },
-        goods(){
-            let goods={img:this.product.img,cname:this.product.cname,title:this.product.title,price:this.product.price,spec:this.product.spec};
-            // 这里打印不成功，跳转页面后就能打印成功
-           console.log(goods);
-            // 加入缓存
-            goods=JSON.stringify(goods);
-            // shopcart是自定义变量
-            localStorage.setItem('shopcart',goods);
-        }
-         
+         },
+        // 点击购物车按钮保存商品数组信息
+        join(lid){
+            if(!this.$store.state.isLogin){
+                this.$toast({
+                message:"您需要先登录才能操作",
+                position:"center",
+                duration:3000
+                });
+            }else{
+                this.$router.push(`/cart`);
+                // this.load();
+            // 点击之后，把当前商品的所有信息都搜集起来
+            let goodsInfo={
+                lid:this.lid,
+                cname:this.cname,
+                title:this.title,
+                price:this.price,
+                spec:this.spec,
+                img:this.img,
+                addCount:this.count
+            }
+            // 调用store中的mutations来将商品加入购物车
+            this.$store.commit('addTocar',goodsInfo);
+            // this.load();
+            console.log(goodsInfo)
+            }
+            }
+            
     },
     mounted(){
         this.load();

@@ -28,23 +28,27 @@
                 </div>
                 <!-- 使用根据lid显示指定的列表 -->
                 <div class="cartflot" >
-                    <ul class="cartul" v-for="(item,k) of carts" :key="k">
+                    <ul class="cartul" v-for="(item,k) of this.$store.state.car" :key="k">
                         <!-- 第一个 -->
                         <!-- <li>圆圈</li> -->
                         <!-- 第1列商品信息 -->
                         <li class="cartimg">
-                        <img class="liimg" :src="carts.img" alt="">
-                        <p class="cartname1">{{carts.cname}}</p>
-                        <p class="cartname2">{{carts.title}}</p>
+                        <img class="liimg" :src="item.img" alt="">
+                        <p class="cartname1">{{item.cname}}</p>
+                        <p class="cartname2">{{item.title}}</p>
                         </li>
                         <!-- 第2列规格 -->
-                        <li ><p class="cartp">{{carts.spec}}</p></li>
+                        <li ><p class="cartp">{{item.spec}}</p></li>
                         <!-- 第3列数量 -->
-                        <li class="cartbtn"><button @click="btnminus()" class="cartbtn1">-</button><span class="bntfont"> {{n}} </span><button @click="btnadd()" class="cartbtn1">+</button></li>
+                        <li class="cartbtn">
+                            <button @click="btnminus(item)" class="cartbtn1">-</button>
+                            <input  readonly :value="item.addCount">
+                            <button @click="btnadd(item)" class="cartbtn1">+</button>
+                        </li>
                         <!-- 第4列单价 -->
-                        <li class="cartprice"><p v-text="`¥${(carts.price).toFixed(2)}`"></p></li>
-                         <!-- 第5列操作  -->
-                         <li class="cartdlet"><img src="../../public/img/home/gouwuche/icon41.png" alt=""></li>
+                        <li class="cartprice"><p>¥{{(item.price*item.addCount).toFixed(2)}}</p></li>
+                         <!-- 第5列删除操作  -->
+                         <li class="cartdlet" @click="remove(item)"><img src="../../public/img/home/gouwuche/icon41.png" alt=""></li>
                     </ul>
                 </div>
             </div>
@@ -61,7 +65,7 @@
                     <li class="peijianli" v-for="(item,index) of peijian" :key="index">
                         <img class="peijianimg" :src="item.img" alt="">
                         <p class="peijianp">{{item.title}}</p>
-                        <p class="peijianp" v-text="`¥${item.price.toFixed(2)}`"></p>
+                        <p class="peijianp" > ¥{{(item.pricep).toFixed(2)}}</p>
                           <img class="peijianimgp" src="../../public/img/home/header/gouwuche.png" alt="图片正在加载">
                         <span class="peijiank"></span>
                     </li>
@@ -76,13 +80,13 @@
                 <div class="ulflotdiv">
                 <ul class="footflot">
                 <li>
-                    <pre><img src="../../public/img/home/gouwuche/icon10.png" alt="">  <span class="footspan">全选</span>
-                    </pre>
+                    <!-- <pre><img src="../../public/img/home/gouwuche/icon10.png" alt="">  <span class="footspan"></span> -->
+                    <!-- </pre> -->
                 </li>
                 <!-- 第二列 -->
                 <li>
-                    <p class="footp">已选{{n}}件商品</p>
-                    <p class="footpsm">共计{{n}}件商品</p>
+                    <!-- <p class="footp">已选{{count}}件商品</p>
+                    <p class="footpsm">共计{{count}}件商品</p> -->
                 </li>
                 </ul>
                 <ul class="footflotright">
@@ -92,7 +96,7 @@
                 </li>
                 <!-- 第四列 -->
                 <li>
-                    <p class="footprice">¥{{(carts.price*n).toFixed(2)}}</p>
+                    <p class="footprice">￥{{total.toFixed(2)}}元</p>
                 </li>
                 </ul>
                 </div>
@@ -104,7 +108,7 @@
                     </div>
                     <div class="peibut">
                         <router-link to="/product"><button class="peijianbtn1">继续挑选</button></router-link>
-                        <button class="peijianbtn2">结 算</button>
+                        <button class="peijianbtn2" >结 算</button>
                     </div>
                 </div>
             </div>
@@ -119,22 +123,42 @@ export default {
             //声明数组保存配件数组对象
             peijian:[],
             // 声明变量保存数量
-            n:1,
+            n:0,
             // 声明变量储存加入购物车的产品信息
-            carts:""
+            goodsInfo:"",
+            count:""
         }
     },
     methods:{
         // 点击减号，数量-1
-        btnminus(){
-           if(this.n>1){
-               this.n--
+        btnminus(item){
+           if(item.addCount>1){
+               item.addCount--
+            // 将变量后的值赋给缓存中的addCount
+            // this.$store.state.car.addCount=item.addCount
            }
         },
         //点击加号，数量+1
-        btnadd(){
-            this.n++
-        }
+        btnadd(item){
+            item.addCount++;
+            // this.$store.state.car.addCount=item.addCount
+        },
+        // 删除购物车
+        remove(item){
+            let removestr="您确定要删除该商品吗？";
+            // 如果确定删除，那么就将缓存的数据赋值为一个空数组
+            if(confirm(removestr)==true){
+                this.$store.state.car=this.$store.state.car.filter(i=>{
+                    //返回空数组
+                    return i!=item;
+                })
+                // 得到最新的对象，把对象解析为json字符串，然后保存到本地缓存
+                let shopcar=JSON.stringify(this.$store.car);
+                localStorage.setItem('car',shopcar);
+                // 将移除对象后的新数组赋值给store里面缓存的car数组
+                this.$store.state.car=this.$store.state.car
+            }
+        },
     },
     mounted(){
         // 获取配件的信息
@@ -142,15 +166,16 @@ export default {
             // console.log('1')
             this.peijian=res.data.results
             // console.log(this.peijian)
-        })
+        });
     },
-    created(){
-        // 开局就加入缓存
-        let cart=localStorage.getItem('shopcart');
-        // 测试打印换缓存
-        console.log(JSON.parse(cart));
-        this.carts=JSON.parse(cart);
-        console.log(this.carts)
+    computed:{
+        total(){
+            let sum=0;
+            for(var i of  this.$store.state.car){
+                sum+=i.price*i.addCount;
+            }
+            return sum;
+        }
     }
 }
 </script>
@@ -368,17 +393,24 @@ export default {
 .cartbtn1:hover{
     font-weight: 600;
 }
+input{
+    width: 15px;
+    text-align: center;
+    border: 0;
+}
 .bntfont{
     font-size: 16px;
     color: #000;
 }
 .cartprice{
-    margin: 40px 0px 0px 200px;
+    margin-top: 40px;
+    padding-left: 200px;
     font-size: 18px;
     color: #000;
 }
 .cartdlet{
-    margin: 40px 0px 0px 196px;
+    margin-top: 40px;
+    padding-left: 200px;
 }
 .peijiandiv{
     padding: 0px 50px;

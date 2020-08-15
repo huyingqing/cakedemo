@@ -139,7 +139,7 @@ router.get('/detail',(req,res)=>{
 
 //请求配件的图标
 router.get('/peijian',(req,res)=>{
-	let sql='select title,price,img from peijian'
+	let sql='select title,pricep,img from peijian'
 	pool.query(sql,(err,results)=>{
 		if(err) throw err;
 		// console.log(results)

@@ -65,7 +65,7 @@
               <p class="eglistfirstp">{{imglists[k].title}}</p>
             </div>
             <div class="seconddiv">
-              <span class="seconddivspan" style="color: #000;">¥{{imglists[k].price}}</span>
+              <span class="seconddivspan" style="color: #000;">¥{{(imglists[k].price).toFixed(2)}}</span>
               <p class="seconddivp"></p>
               <img src="img/home/header/gouwuche.png" alt="图片正在加载">
             </div>
@@ -101,14 +101,14 @@
       <!-- 每一个小的div 使用for循环展示出来-->
        <ul>
          <li  v-for="(i,k) of imglists.slice(6)" :key="k">
-            <router-link to="/product">
+            <router-link :to="`/detail/${imglists.slice(6)[k].lid}`">
               <img  :src="imglists.slice(6)[k].img" alt="图片未加载" >
             <div class="fistdiv">
               <p class="listfirstp">{{imglists.slice(6)[k].cname}}</p>
               <p class="eglistfirstp">{{imglists.slice(6)[k].title}}</p>
             </div>
             <div class="seconddiv">
-              <span class="seconddivspan" style="color: #000;">¥{{imglists[k].price}}</span>
+              <span class="seconddivspan" style="color: #000;">¥{{(imglists[k].price).toFixed(2)}}</span>
               <p class="seconddivp"></p>
               <img src="img/home/header/gouwuche.png" alt="图片正在加载">
             </div>
