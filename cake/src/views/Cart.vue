@@ -41,9 +41,9 @@
                         <li ><p class="cartp">{{item.spec}}</p></li>
                         <!-- 第3列数量 -->
                         <li class="cartbtn">
-                            <button @click="btnminus(item)" class="cartbtn1">-</button>
+                            <button :data-i="k" @click="btnminus($event,item)" class="cartbtn1">-</button>
                             <input  readonly :value="item.addCount">
-                            <button @click="btnadd(item)" class="cartbtn1">+</button>
+                            <button :data-i="k" @click="btnadd($event,item)" class="cartbtn1">+</button>
                         </li>
                         <!-- 第4列单价 -->
                         <li class="cartprice"><p>¥{{(item.price*item.addCount).toFixed(2)}}</p></li>
@@ -131,17 +131,31 @@ export default {
     },
     methods:{
         // 点击减号，数量-1
-        btnminus(item){
+        btnminus(e,item){
+               console.log(e.target)
            if(item.addCount>1){
                item.addCount--
             // 将变量后的值赋给缓存中的addCount
-            // this.$store.state.car.addCount=item.addCount
+            this.$store.state.car[e.target.dataset.i].addCount=item.addCount
+            console.log(this.$store.state.car)
+            // 得到最新的对象，把对象解析为json字符串，然后保存到本地缓存
+                let shopcar=JSON.stringify(this.$store.state.car);
+                localStorage.setItem('car',shopcar);
+                // 将移除对象后的新数组赋值给store里面缓存的car数组
+                this.$store.state.car=this.$store.state.car
            }
         },
         //点击加号，数量+1
-        btnadd(item){
+        btnadd(e,item){
             item.addCount++;
-            // this.$store.state.car.addCount=item.addCount
+            // 将变量后的值赋给缓存中的addCount
+            this.$store.state.car[e.target.dataset.i].addCount=item.addCount
+            console.log(this.$store.state.car)
+            // 得到最新的对象，把对象解析为json字符串，然后保存到本地缓存
+                let shopcar=JSON.stringify(this.$store.state.car);
+                localStorage.setItem('car',shopcar);
+                // 将移除对象后的新数组赋值给store里面缓存的car数组
+                this.$store.state.car=this.$store.state.car
         },
         // 删除购物车
         remove(item){

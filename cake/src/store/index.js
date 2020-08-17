@@ -10,7 +10,7 @@ export default new Vuex.Store({
     isLogin:localStorage.getItem('isLogin') || false,
     isLogin:localStorage.getItem('uname') || "",
     // 组件一开始加载时，执行这个文件时，先从本地缓存把购物车数据拉下来，保存进全局
-    car:JSON.parse('[]' || localStorage.getItem('car'))
+    car:JSON.parse( localStorage.getItem('car') )  || [] 
   },
   mutations: {
     // 用户登录后，将用户名存到缓存
