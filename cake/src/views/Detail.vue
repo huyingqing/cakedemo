@@ -109,6 +109,7 @@ export default {
              this.axios.get('/pro/detail?lid='+lid).then(res=>{
             // console.log('2222');
             this.product=res.data.results;
+            
             this.lid=res.data.results.lid;
             this.cname=res.data.results.cname;
             this.title=res.data.results.title;

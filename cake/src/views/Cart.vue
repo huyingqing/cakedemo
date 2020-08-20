@@ -158,21 +158,17 @@ export default {
                 this.$store.state.car=this.$store.state.car
         },
         // 删除购物车
-        remove(item){
-            let removestr="您确定要删除该商品吗？";
-            // 如果确定删除，那么就将缓存的数据赋值为一个空数组
-            if(confirm(removestr)==true){
-                this.$store.state.car=this.$store.state.car.filter(i=>{
-                    //返回空数组
-                    return i!=item;
-                })
-                // 得到最新的对象，把对象解析为json字符串，然后保存到本地缓存
-                let shopcar=JSON.stringify(this.$store.car);
-                localStorage.setItem('car',shopcar);
-                // 将移除对象后的新数组赋值给store里面缓存的car数组
-                this.$store.state.car=this.$store.state.car
+        remove(i){
+            let message="您确定删除这件商品吗？"
+            if(confirm(message)){
+                console.log(i)
+               this.$store.state.car=this.$store.state.car.filter(item=>{
+                return i!=item;
+               }) 
+               console.log(this.$store.state.car)
+               localStorage.setItem('car',JSON.stringify(this.$store.state.car))
             }
-        },
+        }
     },
     mounted(){
         // 获取配件的信息
